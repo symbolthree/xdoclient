@@ -1,0 +1,53 @@
+XDO Client 2.0
+Copyright (C) 2023  Christopher Ho | symbolthree.com
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+  
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+=========================
+README for XDO Client 2.0
+=========================
+
+For Windows platform:
+- unzip the archive to any directory
+- Run XDOClient.exe to start the GUI-based program
+- Run XDOAction.bat to run the program in batch process
+
+For Linux / Unix platform:
+- Unzip the archive to any directory.
+- Run XDOClient.sh to start the GUI-based program
+- Run XDOAction.sh to start to run the program in batch process
+
+If you're using PDF output and it contains Chinese, Japanese, or Korean characters,
+please download fonts.zip and unzip it to the root directory where XDOClient installed.
+
+CHANGES IN VERSION 2.0
+======================
+- rebrand to symbolthree XDOClient
+- Simplify the program footprint that all files are under the same directory
+- Add native EXCEL template and output
+- Upgrade to use JRE 1.8 or higher; BI Publisher core to 10.1.3.4.2
+
+
+CHANGES IN VERSION 1.1
+======================
+- Change file extension for XDOClient user config file from .xcfg to .xdoc
+- Add extension association for xdoc file, i.e. double click xdoc file will launch XDOClient
+- Put XDO.cfg file into %USER_HOME%\symplik\xdoclient directory
+- Add custom font directory and provide default fonts (a separate download) for non-English characters
+- Remove dependency on Apache Common Exec, Apache Common IO
+- Minor bug fix and cosmetic changes
+
+
+Please visit http://www.symplik.com for the latest changes, tutorials and examples.

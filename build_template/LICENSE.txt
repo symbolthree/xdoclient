@@ -1,0 +1,48 @@
+﻿=================
+License Agreement
+=================
+
+SYMPLiK XDO Client
+
+Copyright (c) 2014 Christopher Ho | SYMPLiK Technologies Co. Ltd.
+
+All rights reserved.
+
+SYMPLiK XDO Client is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+=================================
+License for Oracle-related files
+=================================
+
+bicmn.jar
+bipres.jar
+fndext.jar
+i18nAPI_v3.jar
+jewt4.jar
+orai18n-collation.jar
+orai18n-mapping.jar
+ojdbc6.jar
+share.jar
+xdochartstyles.jar
+xdocore.jar, 
+xmlparserv2.jar
+xsu12.jar
+
+You/Your company must obtain a valid license for Oracle BI Publisher Desktop.
+The aforementioned files are pre-packaged in this software and is for your 
+convenience to use this program. These files should be deleted immediately 
+if you/your company does not have the right granted from Oracle to use 
+these files.  The writer of XDO Client shall not bear any responsibility
+for the copyright violation of the aforementioned files.

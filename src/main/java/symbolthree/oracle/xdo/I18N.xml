@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- $Header: /TOOL/XDOCLIENT/src/symplik/oracle/xdo/I18N.xml 6     9/27/13 12:25p Christopher Ho $ -->
+<messages>
+ <message id="menu">
+  <locale language="en">
+  	<entry key="actions">Actions</entry>
+  	<entry key="generate">Generate</entry>
+  	<entry key="clear_log">Clear Log</entry>
+  	<entry key="load_config">Load Config</entry>
+  	<entry key="save_config">Save Config</entry>
+  	<entry key="save_config_as">Save Config As...</entry>
+  	<entry key="exit">Exit</entry>
+  	<entry key="help">Help</entry>
+  	<entry key="help_content">Help Content</entry>
+  	<entry key="refresh_window">Refresh Window</entry>
+  	<entry key="about">About</entry>
+  	<entry key="help_link">https://github.com/symbolthree/xdoclient.git</entry>  	
+  	<entry key="about_link">http://www.symbolthree.com</entry>
+  	<entry key="close">Close</entry>
+  </locale>
+  <locale language="zh" country="TW">
+  	<entry key="actions">行動</entry>
+  	<entry key="generate">產生</entry>
+  	<entry key="clear_log">清開記錄</entry>
+  	<entry key="load_config">開啟設定</entry>
+  	<entry key="save_config">儲存設定</entry>
+  	<entry key="save_config_as">另存設定...</entry>
+  	<entry key="exit">離開</entry>
+  	<entry key="help">說明</entry>
+  	<entry key="help_content">使用說明</entry>
+  	<entry key="refresh_window">刷新視窗</entry>
+  	<entry key="about">關於</entry>
+  	<entry key="help_link">https://github.com/symbolthree/xdoclient.git</entry>  	
+  	<entry key="about_link">http://www.symbolthree.com</entry>
+  	<entry key="close">關閉</entry>  	
+  </locale>
+ </message>
+ <message id="template">
+  <locale language="en">
+  	<entry key="tab">Template</entry>
+  	<entry key="create_xml_data">Create XML Data</entry>
+  	<entry key="gen_doc">Generate Document</entry>
+  	<entry key="data_template">Data Template</entry>
+  	<entry key="select">Select</entry>
+  	<entry key="edit">Edit</entry>
+  	<entry key="xml_output_dir">XML Output Dir.</entry>
+  	<entry key="filename_pattern">Filename Pattern</entry>
+  	<entry key="open_file">Open File when Done</entry>
+  	<entry key="parameter_values">Parameter Values</entry>
+  	<entry key="fill">Fill</entry>
+  	<entry key="xml_data_file">XML Data File</entry>
+  	<entry key="template_file">Template File</entry>
+  	<entry key="doc_output_dir">Document Output Dir.</entry>
+  	<entry key="doc_output_format">Ouput Format</entry>
+  	<entry key="template_format">Template Format</entry>
+  	<entry key="keep_xml_file">Keep XML Data File</entry>
+  	<entry key="keep_xsl_file">Keep XSL-FO File</entry>
+  	<entry key="save">Save</entry>
+  	<entry key="cancel">cancel</entry>
+  	<entry key="parameters">parameters</entry>
+  	<entry key="error_data_template">Invalid Data Template File</entry>
+  	<entry key="error_xml_output">Invalid XML Output directory</entry>
+  	<entry key="error_xml_filename">Invalid XML output filename</entry>
+  	<entry key="error_doc_template">Invalid Document Template File</entry>
+  	<entry key="error_doc_filename">Invalid Document output filename</entry>
+  	<entry key="error_doc_output">Invalid Document Output directory</entry>
+  	<entry key="error_xml_data">Invalid XML Data File</entry>
+  	<entry key="error_etext">eText output is for eText template only</entry>
+  </locale>
+  <locale language="zh" country="TW">
+  	<entry key="tab">模板</entry>
+  	<entry key="create_xml_data">產生XML數據</entry>
+  	<entry key="gen_doc">產生合併檔案</entry>
+  	<entry key="data_template">XML數據格式檔案</entry>
+  	<entry key="select">選檔</entry>
+  	<entry key="edit">修改</entry>
+  	<entry key="xml_output_dir">XML輸出資料夾</entry>
+  	<entry key="filename_pattern">檔案名稱型式</entry>
+  	<entry key="open_file">完成後開啟檔案</entry>
+  	<entry key="parameter_values">參數設定</entry>
+  	<entry key="fill">填寫</entry>
+  	<entry key="xml_data_file">XML數據檔案</entry>
+  	<entry key="template_file">模板檔案</entry>
+  	<entry key="doc_output_dir">合併檔案輸出資料夾</entry>
+  	<entry key="doc_output_format">合併檔案名稱型式</entry>
+  	<entry key="template_format">模板格式</entry>
+  	<entry key="keep_xml_file">保留XML數據檔案</entry>
+  	<entry key="keep_xsl_file">保留XSL-FO檔案</entry>
+  	<entry key="save">儲存</entry>
+  	<entry key="cancel">取消</entry>
+  	<entry key="parameters">參數</entry>
+  	<entry key="error_data_template">無效的XML數據格式檔案</entry>
+  	<entry key="error_xml_output">無效的XML輸出資料夾</entry>
+  	<entry key="error_xml_filename">無效的XML數據檔案名稱</entry>
+  	<entry key="error_xml_data">無效的XML數據檔案</entry>  	
+  	<entry key="error_doc_template">無效的模板檔案</entry>
+  	<entry key="error_doc_filename">I無效的合併檔案名稱</entry>
+  	<entry key="error_doc_output">無效的合併檔案輸出資料夾</entry>
+  	<entry key="error_etext">eText輸出只可為eText模板檔案使用</entry>
+  </locale>
+  </message>
+  <message id="connection">
+  	<locale language="en">
+  	<entry key="tab">Connection</entry>
+  	<entry key="direct_connect">Use Direct Connection</entry>
+  	<entry key="ebs_connect">Use EBS DataSource</entry>
+  	<entry key="runas_ebs">Run Queries using EBS User and Responsibility</entry>
+  	<entry key="username">Username</entry>
+  	<entry key="password">Password</entry>
+  	<entry key="jdbc_url">JDBC URL</entry>
+  	<entry key="ebs_proxy_name">Proxy Name</entry>
+  	<entry key="ebs_proxy_password">Password</entry>
+  	<entry key="dbc_file">DBC File</entry>
+  	<entry key="select">Select</entry>
+  	<entry key="ebs_username">EBS Username</entry>
+  	<entry key="ebs_password">Password</entry>
+  	<entry key="responsibility">Responsibility</entry>
+  	<entry key="language">Language</entry>
+  	<entry key="status">Status</entry>
+  	<entry key="untested">Untested</entry>
+  	<entry key="test">Test</entry>
+  	<entry key="valid">valid</entry>
+  	<entry key="invalid">invalid</entry>
+  	<entry key="error_direct_conn">All parameters for Direct Connection are required.</entry>
+  	<entry key="error_ebs_conn">All parameters for EBS DataSource are required.</entry>
+  	<entry key="error_ebs_user">EBS Username is required.</entry>
+  	<entry key="error_ebs_resp">Please select a responsibility.</entry>
+  	<entry key="error_ebs_pwd">EBS password is required.</entry>
+  	<entry key="error_select_conn">Please select one connection method</entry>
+  	</locale>
+  	<locale language="zh" country="TW">
+  	<entry key="tab">數據庫連結</entry>
+  	<entry key="direct_connect">直接連結</entry>
+  	<entry key="ebs_connect">通過EBS連結</entry>
+  	<entry key="runas_ebs">使用EBS帳號名及權限</entry>
+  	<entry key="username">帳號</entry>
+  	<entry key="password">密碼</entry>
+  	<entry key="jdbc_url">數據庫URL</entry>
+  	<entry key="ebs_proxy_name">替代帳號</entry>
+  	<entry key="ebs_proxy_password">密碼</entry>
+  	<entry key="dbc_file">DBC檔案</entry>
+  	<entry key="select">選檔</entry>
+  	<entry key="ebs_username">EBS帳號</entry>
+  	<entry key="ebs_password">密碼</entry>
+  	<entry key="responsibility">權限</entry>
+  	<entry key="language">語言</entry>
+  	<entry key="status">狀態</entry>
+  	<entry key="untested">未測試</entry>
+  	<entry key="test">測試</entry>
+  	<entry key="valid">合格</entry>
+  	<entry key="invalid">不合格</entry>
+  	<entry key="error_direct_conn">直接連結的參數必須填上</entry>
+  	<entry key="error_ebs_conn">通過EBS連結的參數必須填上</entry>
+  	<entry key="error_ebs_user">請填上EBS帳號</entry>
+  	<entry key="error_ebs_resp">請填上權限</entry>
+  	<entry key="error_ebs_pwd">請填上EBS帳號的密碼</entry>
+  	<entry key="error_select_conn">請選擇其中一種數據庫連結方法</entry>  	
+  	</locale>
+ 	</message>
+  <message id="settings">
+  	<locale language="en">
+  	<entry key="tab">Settings</entry>  		
+  	<entry key="program_config">Program Settings</entry>
+  	<entry key="xdo_config">XDO Config</entry>
+  	<entry key="temp_dir">Temp. Dir.</entry>
+  	<entry key="select">Select</entry>
+  	<entry key="open_with">File Open With</entry>
+  	<entry key="save">Save</entry>
+  	<entry key="pretty_format">Pretty-format XML output</entry>
+  	<entry key="validate_ebs">Validate EBS credentials</entry>
+  	<entry key="lnf">Look &amp; Feel</entry>
+  	<entry key="ui_lang">UI Language</entry>
+  	<entry key="log_level">Log Level</entry>
+  	<entry key="log_output">Log Output</entry>
+  	<entry key="restart_needed">Settings become effective after program restart</entry>
+  	</locale>
+  	<locale language="zh" country="TW">
+  	<entry key="tab">設定</entry>
+  	<entry key="program_config">程式設定</entry>
+  	<entry key="xdo_config">XDO設定</entry>
+  	<entry key="temp_dir">暫存資料夾</entry>
+  	<entry key="select">選檔</entry>
+  	<entry key="open_with">打開文件之程式</entry>
+  	<entry key="save">儲存</entry>
+  	<entry key="pretty_format">XML輸出漂亮格式</entry>
+  	<entry key="validate_ebs">驗證EBS帳號密碼</entry>
+  	<entry key="lnf">介面外觀</entry>
+  	<entry key="ui_lang">介面語言</entry>
+  	<entry key="log_level">記錄級別</entry>
+  	<entry key="log_output">記錄輸出</entry>
+  	<entry key="restart_needed">設定於重新始動後有效</entry>
+  	</locale>
+  </message>
+</messages>
