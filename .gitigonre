@@ -1,0 +1,17 @@
+.git_local
+.settings
+bin
+output
+release
+setup_file
+test
+.classpath
+.project
+build.log
+build.bat
+build.properties
+GUI.pptx
+screenshots.ppt
+xdo.cfg
+*.bat
+XDOClient.xcf

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
++================================================
+|  XDO Client Build Script
+|  $Header: /TOOL/XDOCLIENT/build.xml 3     10/14/14 11:20p Christopher Ho $
++================================================
+-->
+<project name="XDOClient" default="cleanup" basedir=".">
+  <tstamp/>
+  <property name="launch4j.dir" location="D:\WORK\launch4j" />
+  <taskdef name="launch4j"
+           classname="net.sf.launch4j.ant.Launch4jTask"
+           classpath="${launch4j.dir}/launch4j.jar:${launch4j.dir}/lib/xstream.jar"
+  />
+  <target name="init">
+    <propertyfile file="build.properties">
+      <entry key="build.version" type="string" value="2.0"/>
+      <entry key="build.number" type="int" operation="+" default="0"/>
+      <entry key="build.time" type="date" value="now"/>
+      <entry key="build.product" type="string" value="XDO Client"/>
+    </propertyfile>
+
+    <property file="build.properties"/>
+    <property name="outputArchive" value=".\setup_file\XDO_Client_${build.version}-build${build.number}.zip"/>
+    <property name="releaseDir" value=".\release\XDOClient_${build.version}"/>
+
+    <delete file=".\${outputArchive}"/>
+    <delete dir="${releaseDir}" />
+    <mkdir  dir="${releaseDir}\bin" />    
+    <mkdir  dir="${releaseDir}\fonts" />
+    <!--
+    <mkdir  dir="${releaseDir}\output" />
+    <mkdir  dir="${releaseDir}\tmp" />
+    -->
+  </target>
+
+  <target name="build" depends="init">
+    <copy file="build.properties" toDir="src/main/java"/>
+    <exec executable="mvn.cmd">
+       <arg value="clean" />
+       <arg value="package" />
+   </exec>    
+  </target>
+
+  <target name="copyfiles" depends="build">
+    <copy    file="./target/xdoclient-${build.version}.jar" toDir="${releaseDir}"/>      	
+    <copy    file="build.properties"                        toDir="${releaseDir}/bin"/>
+    <copy    file="./build_template/XDO.cfg"                toDir="${releaseDir}/bin"/>
+
+    <fixcrlf file="build_template/XDOClient.sh"       eol="lf" eof="remove" destDir="${releaseDir}" />
+    <fixcrlf file="build_template/XDOAction.sh"       eol="lf" eof="remove" destDir="${releaseDir}" />
+		<copy    file="build_template/XDOClient.bat"      toDir="${releaseDir}"/>
+		<copy    file="build_template/XDOAction.bat"      toDir="${releaseDir}"/>
+    <replace file="${releaseDir}/XDOClient.sh"        token="@build.version@" value="${build.version}"/>
+    <replace file="${releaseDir}/XDOAction.sh"        token="@build.version@" value="${build.version}"/>
+    <replace file="${releaseDir}/XDOClient.bat"       token="@build.version@" value="${build.version}"/>
+    <replace file="${releaseDir}/XDOAction.bat"       token="@build.version@" value="${build.version}"/>
+
+    <copy file="./build_template/README"                toDir="${releaseDir}"/>
+    <copy file="./build_template/GPL.txt"               toDir="${releaseDir}"/>
+    <copy file="./build_template/LICENSE.txt"           toDir="${releaseDir}"/>
+    <copy file="./build_template/LICENSE_3RD_PARTY.txt" toDir="${releaseDir}"/>
+		<copy file="./build_template/splash.gif"            toDir="${releaseDir}"/>
+<!--
+    <copy file=".\build_template\readme_output.txt"     toFile="${releaseDir}\output\readme.txt"/>
+    <copy file=".\build_template\readme_temp.txt"       toFile="${releaseDir}\tmp\readme.txt"/>
+-->
+    <copy file=".\build_template\readme_fonts.txt"     toFile="${releaseDir}\fonts\readme.txt"/>
+  </target>
+
+  <target name="build-exe" depends="copyfiles">
+  	<delete file="launch4j.xml"/>
+  	<copy file="build_template\launch4j.xml" toFile="launch4j.xml"/>
+  	<attrib  file="launch4j.xml" readonly="false"/>
+  	<replace file="launch4j.xml" token="@build.version@" value="${build.version}"/>
+  	<replace file="launch4j.xml" token="@fileVersion@" value="${build.version}.${build.number}.0"/>
+  	<replace file="launch4j.xml" token="@txtFileVersion@" value="${build.version} build ${build.number}"/>
+  	<replace file="launch4j.xml" token="@productVersion@" value="${build.version}.${build.number}.0"/>
+  	<replace file="launch4j.xml" token="@txtProductVersion@" value="${build.version} build ${build.number}"/>
+  	<launch4j configFile="launch4j.xml" />
+    <move file=".\XDOClient.exe" toFile="${releaseDir}\XDOClient.exe"/>
+  </target>
+
+  <target name="cleanup" depends="build-exe">
+    <delete file="launch4j.xml"/>
+    <delete file="dependency-reduced-pom.xml"/>
+    <delete dir="target"/>
+  </target>
+<!--
+    <delete file="XDOClient.iss"/>
+    <copy file=".\build_template\XDOClient.iss" toFile="XDOClient.iss"/>
+    <attrib  file="XDOClient.iss" readonly="false"/>
+    <replace file="XDOClient.iss" token="@build.number@" value="${build.number}"/>
+    <replace file="XDOClient.iss" token="@build.version@" value="${build.version}"/>
+		<exec executable="C:\WORK\InnoSetup5\ISCC.exe">
+				<arg value="XDOClient.iss"/>
+		</exec>
+-->
+</project>
