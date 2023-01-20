@@ -15,3 +15,4 @@ screenshots.ppt
 xdo.cfg
 *.bat
 XDOClient.xcfg
+/target/

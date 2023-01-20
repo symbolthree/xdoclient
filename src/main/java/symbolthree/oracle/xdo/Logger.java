@@ -54,7 +54,36 @@ public class Logger implements CONSTANTS {
         }
     }	
 	
-    private static String logLevelStr(int logLevel) {
+    
+    public static int getXDOLogLevel (String logLevel) {
+        /* XDO Logging level
+             6 "UNEXPECTED"
+             5 "ERROR"
+             4 "EXCEPTION"
+             3 "EVENT"
+             2 "PROCEDURE"
+             1 "STATEMENT";
+         */    
+        if (logLevel.equals("DEBUG")) {
+            return 1;
+        }
+
+        if (logLevel.equals("INFO")) {
+            return 2;
+        }
+
+        if (logLevel.equals("WARN")) {
+            return 3;
+        }
+
+        if (logLevel.equals("ERROR")) {
+            return 4;
+        }
+
+        return 3;
+    }
+    
+    public static String logLevelStr(int logLevel) {
         if (logLevel == LOG_DEBUG) {
             return "DEBUG";
         }
@@ -74,7 +103,7 @@ public class Logger implements CONSTANTS {
         return String.valueOf("DEBUG");
     }
 
-    private static int logLevelInt(String logLevel) {
+    public static int logLevelInt(String logLevel) {
         if (logLevel.equals("DEBUG")) {
             return LOG_DEBUG;
         }

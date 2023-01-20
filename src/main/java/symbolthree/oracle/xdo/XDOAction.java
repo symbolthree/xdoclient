@@ -29,7 +29,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Locale;
@@ -51,6 +50,7 @@ import oracle.apps.xdo.template.FOProcessor;
 import oracle.apps.xdo.template.FormProcessor;
 import oracle.apps.xdo.template.RTFProcessor;
 import oracle.apps.xdo.template.ExcelProcessor;
+//import oracle.apps.xdo.common.log.Logger;
 
 import oracle.apps.xdo.batch.ReportsBatchProcessor;
 
@@ -152,6 +152,11 @@ public class XDOAction implements CONSTANTS{
 	      dp.setDataTemplate(dataTemplate.getAbsolutePath());
 	      dp.setParameters(ht1);
 	      dp.setOutput(outputXML.getAbsolutePath());
+	      
+	      if (Logger.logLevelInt(config.getStr(SETTINGS.LOG_LEVEL)) == LOG_DEBUG) {
+	    	  dp.setDebugLogOn();
+	      }
+	      
 	      dp.processData();
 	      
 	      if (config.getBoolean(SETTINGS.PRETTY_FORMAT)) {
@@ -182,6 +187,9 @@ public class XDOAction implements CONSTANTS{
 		  }
 		  setPublishDocFile(outputFile);
 		  Logger.log(LOG_INFO, "Doucment File is " + outputFile.getAbsolutePath());
+		  
+		  int xdoLogLevel = Logger.getXDOLogLevel(config.getStr(SETTINGS.LOG_LEVEL));
+		  oracle.apps.xdo.common.log.Logger.setLevel(xdoLogLevel);
 		  
 		  if (config.getStr(TEMPLATE.DOC$TEMPLATE_FORMAT).equals("RTF")) {
 			  RTFProcessor();
@@ -227,6 +235,7 @@ public class XDOAction implements CONSTANTS{
 	      Logger.log(LOG_INFO, "Start creation XSL-FO...");
 	      RTFProcessor rtfProcessor = new RTFProcessor(rtfTemplate.getAbsolutePath());
 	      setXDOProperties();
+	      
 	      rtfProcessor.setConfig(xdoProperties); 
 	      rtfProcessor.setOutput(xslFOFile.getAbsolutePath());
 	      rtfProcessor.process();

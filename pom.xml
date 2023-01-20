@@ -1,4 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
+<project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
@@ -8,9 +8,9 @@
 
  <properties>
     <maven.build.timestamp.format>yyyy-MM-dd HH.mm.ss</maven.build.timestamp.format>
-    <build.timestamp>${maven.build.timestamp}</build.timestamp>   
+    <build.timestamp>${maven.build.timestamp}</build.timestamp>
     <maven.test.failure.ignore>true</maven.test.failure.ignore>
- 
+
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -18,6 +18,7 @@
   </properties>
 
   <dependencies>
+<!-- XDO Client Libraries -->
     <dependency>
         <groupId>commons-i18n</groupId>
         <artifactId>commons-i18n</artifactId>
@@ -52,7 +53,7 @@
 		    <groupId>com.jgoodies</groupId>
 		    <artifactId>jgoodies-looks</artifactId>
 		    <version>2.7.0</version>
-		</dependency>				
+		</dependency>
     <dependency>
       <groupId>com.oracle.database.jdbc</groupId>
       <artifactId>ojdbc8</artifactId>
@@ -63,10 +64,11 @@
       <artifactId>fndext</artifactId>
       <version>120.9</version>
     </dependency>
+<!-- BI Publisher libraries (10.2.3.4.2) -->
     <dependency>
       <groupId>oracle.apps.xdo</groupId>
       <artifactId>xdocore</artifactId>
-      <version>10.1.3.4.1</version>
+      <version>10.1.3.4.2</version>
     </dependency>
     <dependency>
       <groupId>oracle.xml</groupId>
@@ -77,30 +79,40 @@
       <groupId>oracle.apps.fnd</groupId>
       <artifactId>i18n</artifactId>
       <version>3</version>
-    </dependency>    
+    </dependency>
+    <dependency>
+      <groupId>oracle</groupId>
+      <artifactId>i18n</artifactId>
+      <version>10.1.0.7.0</version>
+    </dependency>
     <dependency>
       <groupId>oracle.i18n</groupId>
       <artifactId>collation</artifactId>
       <version>11.1.0.7.0</version>
-    </dependency>    
+    </dependency> 
+    <dependency>
+      <groupId>oracle.i18n</groupId>
+      <artifactId>mapping</artifactId>
+      <version>11.1.0.7.0</version>
+    </dependency>         
     <dependency>
       <groupId>com.sun.java.util</groupId>
       <artifactId>collections</artifactId>
       <version>115.1</version>
     </dependency>
   </dependencies>
-  
+
   <build>
     <resources>
-     <!--      
+     <!--
       <resource>
         <directory>src\main\java</directory>
         <includes>
           <include>xdo.cfg</include>
-          <include>build.properties</include>          
+          <include>build.properties</include>
         </includes>
       </resource>
-     -->      
+     -->
       <resource>
         <directory>src\main\java\symbolthree\oracle\xdo</directory>
         <includes>
@@ -116,7 +128,7 @@
         <targetPath>/symbolthree/oracle/xdo/icon</targetPath>
       </resource>
     </resources>
-    
+
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
