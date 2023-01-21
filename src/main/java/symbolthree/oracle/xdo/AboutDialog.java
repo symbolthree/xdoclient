@@ -61,6 +61,7 @@ import javax.swing.table.TableModel;
 
 import oracle.jdbc.OracleDriver;
 import oracle.xml.parser.v2.XMLParser;
+import oracle.xml.XDKVersion;
 
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -197,7 +198,13 @@ public class AboutDialog extends JDialog implements ActionListener, CONSTANTS {
        */
         
         String s3 = XMLParser.getReleaseVersion();
-        addVersion("Oracle XML Developers Kit",  s3.substring(26));    
+        String xdkVersion = s3.substring(26).trim();
+        if (xdkVersion==null) {
+        	xdkVersion = XDKVersion.MAJORVSN + "." + XDKVersion.MINORVSN + "." + 
+                         XDKVersion.MIDTIERVSN + "." + XDKVersion.PATCHMAJORVSN + "." + 
+        			     XDKVersion.PATCHMINORVSN;
+        }
+        addVersion("Oracle XML Developers Kit",  xdkVersion);    
         
         InputStream is = this.getClass().getResourceAsStream("/META-INF/jdom-info.xml");
         SAXBuilder builder = new SAXBuilder();

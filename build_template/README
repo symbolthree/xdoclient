@@ -34,8 +34,7 @@ please download fonts.zip and unzip it to the root directory where XDOClient ins
 
 CHANGES IN VERSION 2.0
 ======================
-- rebrand to symbolthree XDOClient
-- Simplify the program footprint that all files are under the same directory
+- Simplify the program footprint that all files are resided under the same directory
 - Add native EXCEL template and output
 - Upgrade to use JRE 1.8 or higher; BI Publisher core to 10.1.3.4.2
 

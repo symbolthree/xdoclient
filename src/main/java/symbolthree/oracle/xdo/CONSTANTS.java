@@ -47,11 +47,13 @@ public interface CONSTANTS {
     public static final String XDOCLIENT_USER_CFG     = "symbolthree.oracle.xdo.config";
     public static final String XDOCLIENT_USER_CFG_EXT = "xdoc";
     
-    public static final String[] LOOK_AND_FEELS  = { 
+    public static final String[] LOOK_AND_FEELS  = {
+    		/*
     	    "JGoodiesWindow:com.jgoodies.looks.windows.WindowsLookAndFeel",
     	    "JGoodiesPlastic:com.jgoodies.looks.plastic.PlasticLookAndFeel",
     	    "JGoodiesPlastic3D:com.jgoodies.looks.plastic.Plastic3DLookAndFeel",
     	    "JGoodiesPlasticXP:com.jgoodies.looks.plastic.PlasticXPLookAndFeel",
+    	    */
             "GTKLookAndFeel:com.sun.java.swing.plaf.gtk.GTKLookAndFeel",    	    
             "MetalLookAndFeel:javax.swing.plaf.metal.MetalLookAndFeel",
             "MotifLookAndFeel:com.sun.java.swing.plaf.motif.MotifLookAndFeel",

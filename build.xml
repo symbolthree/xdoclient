@@ -28,10 +28,8 @@
     <delete dir="${releaseDir}" />
     <mkdir  dir="${releaseDir}\bin" />    
     <mkdir  dir="${releaseDir}\fonts" />
-    <!--
     <mkdir  dir="${releaseDir}\output" />
     <mkdir  dir="${releaseDir}\tmp" />
-    -->
   </target>
 
   <target name="build" depends="init">
@@ -61,14 +59,14 @@
     <copy file="./build_template/LICENSE.txt"           toDir="${releaseDir}"/>
     <copy file="./build_template/LICENSE_3RD_PARTY.txt" toDir="${releaseDir}"/>
 		<copy file="./build_template/splash.gif"            toDir="${releaseDir}"/>
-<!--
-    <copy file=".\build_template\readme_output.txt"     toFile="${releaseDir}\output\readme.txt"/>
-    <copy file=".\build_template\readme_temp.txt"       toFile="${releaseDir}\tmp\readme.txt"/>
--->
-    <copy file=".\build_template\readme_fonts.txt"     toFile="${releaseDir}\fonts\readme.txt"/>
+    <copy file="./build_template/XDOClient.ico"         toDir="${releaseDir}"/>
+
+    <copy file="./build_template/readme_output.txt"     toFile="${releaseDir}/output/readme.txt"/>
+    <copy file="./build_template/readme_temp.txt"       toFile="${releaseDir}/tmp/readme.txt"/>
+    <copy file="./build_template/readme_fonts.txt"      toFile="${releaseDir}/fonts/readme.txt"/>
   </target>
 
-  <target name="build-exe" depends="copyfiles">
+  <target name="buildExe" depends="copyfiles">
   	<delete file="launch4j.xml"/>
   	<copy file="build_template\launch4j.xml" toFile="launch4j.xml"/>
   	<attrib  file="launch4j.xml" readonly="false"/>
@@ -81,19 +79,22 @@
     <move file=".\XDOClient.exe" toFile="${releaseDir}\XDOClient.exe"/>
   </target>
 
-  <target name="cleanup" depends="build-exe">
-    <delete file="launch4j.xml"/>
-    <delete file="dependency-reduced-pom.xml"/>
-    <delete dir="target"/>
-  </target>
-<!--
-    <delete file="XDOClient.iss"/>
+<target name="buildInstall" depends="buildExe">
     <copy file=".\build_template\XDOClient.iss" toFile="XDOClient.iss"/>
     <attrib  file="XDOClient.iss" readonly="false"/>
     <replace file="XDOClient.iss" token="@build.number@" value="${build.number}"/>
     <replace file="XDOClient.iss" token="@build.version@" value="${build.version}"/>
-		<exec executable="C:\WORK\InnoSetup5\ISCC.exe">
+
+    <exec executable="D:\WORK\InnoSetup6\ISCC.exe">
 				<arg value="XDOClient.iss"/>
 		</exec>
--->
+</target>
+
+  <target name="cleanup" depends="buildInstall">
+    <delete file="launch4j.xml"/>
+    <delete file="dependency-reduced-pom.xml"/>
+    <delete file="XDOClient.iss"/>    
+    <delete dir="target"/>    
+  </target>
+
 </project>
