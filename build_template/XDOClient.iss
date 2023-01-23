@@ -13,11 +13,11 @@ AppPublisherURL=symbolthree.com
 AppSupportURL=www.symbolthree.com
 AppUpdatesURL=www.symbolthree.com
 AppCopyright=Copyright (C) 2023 symbolthree.com
-DefaultDirName={pf}\symbolthree/XDOClient
+DefaultDirName={userappdata}\symbolthree\XDOClient
 DefaultGroupName=symbolthree\XDOClient
 AllowNoIcons=false
 LicenseFile=build_template\LICENSE.txt
-OutputBaseFilename=xdoclient_@build.version@
+OutputBaseFilename=XDOClient_@build.version@.@build.number@
 Compression=lzma
 SolidCompression=true
 SetupLogging=false
@@ -25,7 +25,7 @@ OutputDir=setup_file
 WizardImageFile=build_template\installer.bmp
 ;SetupIconFile=build_template\XDOClient.ico
 WizardImageStretch=false
-WizardImageBackColor=clWhite
+;WizardImageBackColor=clWhite
 AppMutex=XDOClient
 ;UninstallDisplayIcon={app}\XDOClient.ICO
 PrivilegesRequired=none
@@ -34,31 +34,32 @@ VersionInfoVersion=@build.version@.@build.number@.0
 
 [Languages]
 Name: english; MessagesFile: compiler:Default.isl
-;Name: chineseTrad; MessagesFile: compiler:Languages\ChineseTrad.isl
-;Name: chineseSimp; MessagesFile: compiler:Languages\chineseSimp.isl
-;Name: Japanese; MessagesFile: compiler:Languages\Japanese.isl
+Name: ChineseSimplified; MessagesFile: compiler:Languages\ChineseSimplified.isl
+Name: ChineseTraditional; MessagesFile: compiler:Languages\ChineseTraditional.isl
+Name: French; MessagesFile: compiler:Languages\French.isl
 
 [Tasks]
 Name: desktopicon; Description: {cm:CreateDesktopIcon}; GroupDescription: {cm:AdditionalIcons}
 
 [Files]
-;Source: release\XDOClient_@build.version@\lib\*; DestDir: {app}\lib; Flags: recursesubdirs createallsubdirs
-;Source: release\XDOClient_@build.version@\examples\*; DestDir: {app}\examples; Flags: recursesubdirs createallsubdirs
-Source: release\XDOClient_@build.version@\fonts\*; DestDir: {app}\fonts; Flags: recursesubdirs createallsubdirs
-Source: release\XDOClient_@build.version@\output\*; DestDir: {app}\output; Flags: recursesubdirs createallsubdirs
-Source: release\XDOClient_@build.version@\tmp\*; DestDir: {app}\temp; Flags: recursesubdirs createallsubdirs
-Source: release\XDOClient_@build.version@\bin\*; DestDir: {app}\bin; Flags: recursesubdirs createallsubdirs
-Source: release\XDOClient_@build.version@\XDOClient.bat; DestDir: {app}
-Source: release\XDOClient_@build.version@\XDOAction.bat; DestDir: {app}
-;Source: release\XDOClient_@build.version@\XDOClient-@build.version@-build@build.number@_src.zip; DestDir: {app}
-Source: release\XDOClient_@build.version@\XDOClient.exe; DestDir: {app}
-Source: release\XDOClient_@build.version@\XDOClient.ICO; DestDir: {app}
-Source: release\XDOClient_@build.version@\GPL.txt; DestDir: {app}
-Source: release\XDOClient_@build.version@\README; DestDir: {app}
-Source: release\XDOClient_@build.version@\LICENSE.txt; DestDir: {app}
-Source: release\XDOClient_@build.version@\LICENSE_3RD_PARTY.txt; DestDir: {app}
-Source: release\XDOClient_@build.version@\splash.gif; DestDir: {app}
-Source: release\XDOClient_@build.version@\XDO.cfg; DestDir: {app}
+;Source: release\XDOClient_2.0\lib\*; DestDir: {app}\lib; Flags: recursesubdirs createallsubdirs
+;Source: release\XDOClient_2.0\examples\*; DestDir: {app}\examples; Flags: recursesubdirs createallsubdirs
+Source: release\XDOClient_2.0\fonts\*; DestDir: {app}\fonts; Flags: recursesubdirs createallsubdirs
+Source: release\XDOClient_2.0\output\*; DestDir: {app}\output; Flags: recursesubdirs createallsubdirs
+Source: release\XDOClient_2.0\tmp\*; DestDir: {app}\tmp; Flags: recursesubdirs createallsubdirs
+Source: release\XDOClient_2.0\bin\*; DestDir: {app}\bin; Flags: recursesubdirs createallsubdirs
+Source: release\XDOClient_2.0\XDOClient.bat; DestDir: {app}
+Source: release\XDOClient_2.0\XDOAction.bat; DestDir: {app}
+;Source: release\XDOClient_2.0\XDOClient-2.0-build31_src.zip; DestDir: {app}
+Source: release\XDOClient_2.0\xdoclient-2.0.jar; DestDir: {app}
+Source: release\XDOClient_2.0\XDOClient.exe; DestDir: {app}
+Source: release\XDOClient_2.0\XDOClient.ico; DestDir: {app}
+Source: release\XDOClient_2.0\GPL.txt; DestDir: {app}
+Source: release\XDOClient_2.0\README; DestDir: {app}
+Source: release\XDOClient_2.0\LICENSE.txt; DestDir: {app}
+Source: release\XDOClient_2.0\LICENSE_3RD_PARTY.txt; DestDir: {app}
+Source: release\XDOClient_2.0\splash.gif; DestDir: {app}
+;Source: release\XDOClient_2.0\XDO.cfg; DestDir: {app}
 
 [Registry]
 Root: HKCR; Subkey: ".xdoc"; ValueType: string; ValueName: ""; ValueData: "XDOClient"; Flags: uninsdeletevalue
@@ -72,4 +73,4 @@ Name: {group}\XDOClient @build.version@; Filename: {app}\XDOClient.EXE; WorkingD
 Name: {commondesktop}\XDOClient @build.version@; Filename: {app}\XDOClient.EXE; Tasks: desktopicon; WorkingDir: {app}; IconIndex: 0
 
 [Run]
-Filename: {app}\XDOClient.EXE; Description: {cm:LaunchProgram,SYMPLiK XDOClient}; Flags: nowait postinstall skipifsilent
+Filename: {app}\XDOClient.EXE; Description: {cm:LaunchProgram,XDOClient}; Flags: nowait postinstall skipifsilent

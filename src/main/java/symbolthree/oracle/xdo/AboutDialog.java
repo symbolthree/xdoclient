@@ -1,7 +1,7 @@
 /******************************************************************************
  *
  * Symbolthree XDO Client
- * Copyright (C) 2019 Christopher Ho 
+ * Copyright (C) 2023 Christopher Ho 
  * All Rights Reserved, http://www.symbolthree.com
  *
  * This program is free software; you can redistribute it and/or
@@ -20,12 +20,6 @@
  *
  * E-mail: Christopher.Ho@symbolthree.com
  *
- * ================================================
- *
- * $Archive: /TOOL/XDOCLIENT/src/symplik/oracle/xdo/XDOClient.java $
- * $Author: Christopher Ho $
- * $Date: 9/24/14 5:31a $
- * $Revision: 9 $
 ******************************************************************************/
 
 package symbolthree.oracle.xdo;
@@ -67,6 +61,7 @@ import javax.swing.table.TableModel;
 
 import oracle.jdbc.OracleDriver;
 import oracle.xml.parser.v2.XMLParser;
+import oracle.xml.XDKVersion;
 
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -92,11 +87,11 @@ public class AboutDialog extends JDialog implements ActionListener, CONSTANTS {
         this.setLayout(new GridBagLayout());
     	GridBagConstraints GC = new GridBagConstraints();
     	
-		JLabel label1  = new JLabel("Symbolthree XDO Client ");
+		JLabel label1  = new JLabel("XDO Client ");
 		label1.setFont(new Font(Font.DIALOG, Font.BOLD, 14));
 		JLabel version = new JLabel(getXDOClientVersion());
 		version.setFont(new Font(Font.DIALOG, Font.ITALIC, 12));
-		JLabel label2 = new JLabel("Copyright(c) 2023 Christopher Ho");
+		JLabel label2 = new JLabel("Copyright(c) 2023 Christopher Ho | symbolthree.com");
 		JLabel label3 = new JLabel("<html><a href='#'>Home Page</a></html>");
 		label3.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		label3.addMouseListener(new MouseAdapter() {
@@ -203,7 +198,16 @@ public class AboutDialog extends JDialog implements ActionListener, CONSTANTS {
        */
         
         String s3 = XMLParser.getReleaseVersion();
-        addVersion("Oracle XML Developers Kit",  s3.substring(26));    
+        String xdkVersion = s3.substring(26).trim();
+        
+        Logger.log(this, LOG_DEBUG, "Oracle XDK version=[" + xdkVersion + "]");
+        
+        if (xdkVersion.equals("null")) {
+        	xdkVersion = XDKVersion.MAJORVSN + "." + XDKVersion.MINORVSN + "." + 
+                         XDKVersion.MIDTIERVSN + "." + XDKVersion.PATCHMAJORVSN + "." + 
+        			     XDKVersion.PATCHMINORVSN;
+        }
+        addVersion("Oracle XML Developers Kit",  xdkVersion);
         
         InputStream is = this.getClass().getResourceAsStream("/META-INF/jdom-info.xml");
         SAXBuilder builder = new SAXBuilder();

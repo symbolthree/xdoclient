@@ -1,7 +1,7 @@
 /******************************************************************************
  *
  * Symbolthree XDO Client
- * Copyright (C) 2019 Christopher Ho 
+ * Copyright (C) 2023 Christopher Ho 
  * All Rights Reserved, http://www.symbolthree.com
  *
  * This program is free software; you can redistribute it and/or
@@ -20,17 +20,10 @@
  *
  * E-mail: Christopher.Ho@symbolthree.com
  *
- * ================================================
- *
- * $Archive: /TOOL/XDOCLIENT/src/symplik/oracle/xdo/XDOClient.java $
- * $Author: Christopher Ho $
- * $Date: 9/24/14 5:31a $
- * $Revision: 9 $
 ******************************************************************************/
 
 package symbolthree.oracle.xdo;
 
-import java.awt.Font;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -61,6 +54,7 @@ import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.Namespace;
 
+/*
 import com.jgoodies.looks.FontPolicies;
 import com.jgoodies.looks.FontPolicy;
 import com.jgoodies.looks.FontSets;
@@ -68,6 +62,7 @@ import com.jgoodies.looks.plastic.Plastic3DLookAndFeel;
 import com.jgoodies.looks.plastic.PlasticLookAndFeel;
 import com.jgoodies.looks.plastic.PlasticXPLookAndFeel;
 import com.jgoodies.looks.windows.WindowsLookAndFeel;
+*/
 
 import oracle.apps.fnd.security.Security;
 
@@ -132,6 +127,7 @@ public class Config implements CONSTANTS {
       //File xdoCfgTemplate = new File(System.getProperty("user.dir"), "XDO.cfg");
       InputStream xdoCfgTemplate = this.getClass().getResourceAsStream("/XDO.cfg");
       if (!xdoCfg.exists()) {
+    	  System.out.println("create XDO.cfg file under program folder");
    	    try {
    	      File tmpDir = new File(this.getStr(SETTINGS.TEMP_DIR));	
           SAXBuilder builder = new SAXBuilder();
@@ -392,7 +388,8 @@ public class Config implements CONSTANTS {
     public void setLNF() {
 	    try {
 	    	String lnf = this.getStr(SETTINGS.LNF);
-			/** JGoodies fix for unicode characters **/
+			/** JGoodies fix for unicode characters **/	    	
+	    	/*
 			if (lnf.startsWith("com.jgoodies")) {
 				FontPolicy policy = FontPolicies.createFixedPolicy(FontSets.createDefaultFontSet(Font.decode("arial unicode MS 12")));
 		        if (lnf.indexOf("WindowsLookAndFeel") > 0) WindowsLookAndFeel.setFontPolicy(policy);
@@ -400,6 +397,7 @@ public class Config implements CONSTANTS {
 		        if (lnf.indexOf("PlasticXPLookAndFeel") > 0) PlasticXPLookAndFeel.setFontPolicy(policy);
 		        if (lnf.indexOf("Plastic3DLookAndFeel") > 0) Plastic3DLookAndFeel.setFontPolicy(policy);
 			}
+			*/
 			UIManager.setLookAndFeel(lnf);
 		} catch (Exception e) {
 			String lnf = UIManager.getSystemLookAndFeelClassName();

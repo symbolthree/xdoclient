@@ -7,5 +7,5 @@ to start XDOClient or XDOAction.
 e.g. for Windows platform:
      -Dfile.encoding=UTF8 ^
      -DXDO_FONT_DIR=C:\Windows\Fonts ^    <--- add this line
-     symplik.oracle.xdo.XDOClient %*
+     symbolthree.oracle.xdo.XDOClient %*
  
