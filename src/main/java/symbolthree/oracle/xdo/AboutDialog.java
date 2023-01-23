@@ -87,11 +87,11 @@ public class AboutDialog extends JDialog implements ActionListener, CONSTANTS {
         this.setLayout(new GridBagLayout());
     	GridBagConstraints GC = new GridBagConstraints();
     	
-		JLabel label1  = new JLabel("Symbolthree XDO Client ");
+		JLabel label1  = new JLabel("XDO Client ");
 		label1.setFont(new Font(Font.DIALOG, Font.BOLD, 14));
 		JLabel version = new JLabel(getXDOClientVersion());
 		version.setFont(new Font(Font.DIALOG, Font.ITALIC, 12));
-		JLabel label2 = new JLabel("Copyright(c) 2023 Christopher Ho");
+		JLabel label2 = new JLabel("Copyright(c) 2023 Christopher Ho | symbolthree.com");
 		JLabel label3 = new JLabel("<html><a href='#'>Home Page</a></html>");
 		label3.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		label3.addMouseListener(new MouseAdapter() {
@@ -199,12 +199,15 @@ public class AboutDialog extends JDialog implements ActionListener, CONSTANTS {
         
         String s3 = XMLParser.getReleaseVersion();
         String xdkVersion = s3.substring(26).trim();
-        if (xdkVersion==null) {
+        
+        Logger.log(this, LOG_DEBUG, "Oracle XDK version=[" + xdkVersion + "]");
+        
+        if (xdkVersion.equals("null")) {
         	xdkVersion = XDKVersion.MAJORVSN + "." + XDKVersion.MINORVSN + "." + 
                          XDKVersion.MIDTIERVSN + "." + XDKVersion.PATCHMAJORVSN + "." + 
         			     XDKVersion.PATCHMINORVSN;
         }
-        addVersion("Oracle XML Developers Kit",  xdkVersion);    
+        addVersion("Oracle XML Developers Kit",  xdkVersion);
         
         InputStream is = this.getClass().getResourceAsStream("/META-INF/jdom-info.xml");
         SAXBuilder builder = new SAXBuilder();
