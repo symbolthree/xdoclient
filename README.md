@@ -1,4 +1,4 @@
-#XDO Client
+# XDO Client
 
 XDO Client is designed to help developers to create, test, and demo Oracle XML/BI Publisher reports without logging to the EBS suite or BI Publisher server. 
 This program is capable to:
